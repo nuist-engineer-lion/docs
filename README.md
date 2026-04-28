@@ -21,7 +21,6 @@ uv run python -m zensical serve
 
 Vercel 使用 `vercel.json` 中的构建配置：
 
-- install: `python3 -m pip install uv && python3 -m uv sync --frozen`
-- build: `python3 -m uv run python -m zensical build --clean`
+- install: install `uv` if missing, then `uv sync --frozen`
+- build: `uv run python -m zensical build --clean`
 - output: `site`
-
