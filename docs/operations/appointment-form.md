@@ -1,11 +1,12 @@
 ---
+title: "预约单收集表"
+author: "海上修机师"
+source: "飞书知识库"
 tags:
   - 运营
 ---
 
-# 预约单收集表
-
-类型：多维表格/Base  
+类型：多维表格/Base
 Base token：`JmvAb8dF7aHJdUs1S29cTuGdn9b`
 
 ## 预约表单&看板

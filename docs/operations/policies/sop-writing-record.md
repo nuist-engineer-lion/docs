@@ -1,12 +1,13 @@
 ---
+title: "撰写记录"
+author: "海上修机师"
+source: "飞书知识库"
 tags:
   - 运营
   - 规范
 ---
 
-# 撰写记录
-
-类型：多维表格/Base  
+类型：多维表格/Base
 Base token：`M3jrbY7I2ae6D1sNSHqc1hRcnlc`
 
 ## 数据表

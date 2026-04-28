@@ -1,41 +1,42 @@
 ---
+title: "虚拟机"
+author: "海上修机师"
+source: "飞书知识库"
 tags:
   - 软件
 ---
-
-# 虚拟机
 
 ##### 参考资料
 
 www.52pojie.cn/thread-1804571-1-1.html
 
-# 概述
+## 概述
 
-# 常见的虚拟机
+## 常见的虚拟机
 
 ## Windows Vmware Workstation
 
 ### 概述
 
-系统要求  
-VM17：硬件要求高，Windows 10 或更高版64位  
-VM16：硬件要求高，Windows 10 或更高版64位  
-VM15：硬件要求中，Windows 7 或更高版64位  
-VM12：硬件要求低，Windows 7 或更高版64位  
+系统要求
+VM17：硬件要求高，Windows 10 或更高版64位
+VM16：硬件要求高，Windows 10 或更高版64位
+VM15：硬件要求中，Windows 7 或更高版64位
+VM12：硬件要求低，Windows 7 或更高版64位
 VM10：Windows XP 或更高版32位和64位旧版
 
 **注意：**
 
 > VM17
-> 
+>
 > 已经砍掉了虚拟磁盘映射功能，如果你要用这个功能的话千万别下载
-> 
+>
 > VM16.1.2
-> 
+>
 >  完美版，之后的版本，官方允许磁盘映射一次，再映射就报错了。
-> 
+>
 > VM14
-> 
+>
 > 版本开始不支持某些旧的电脑硬件，会提示不支持或安装失败, 如遇到请退回12版本。
 
 本文使用Vmware 16.1.2演示，其他版本&注册码请前往参考资料
@@ -53,17 +54,17 @@ https://download3.vmware.com/software/WKST-1625-WIN/VMware-workstation-full-16.2
 注意：许可证资源收集自网络，与本机构无关
 
 > 【VMware Workstation 16】
-> 
+>
 > VMware Workstation v16.x 许可证激活密钥：
-> 
+>
 >  ZF3R0-FHED2-M80TY-8QYGC-NPKYF
-> 
+>
 >  YF390-0HF8P-M81RQ-2DXQE-M2UT6
-> 
+>
 >  ZF71R-DMX85-08DQY-8YMNC-PPHV8
-> 
+>
 >  110L3-9135J-M807A-08ARK-84V7L
-> 
+>
 >  FF31K-AHZD1-H8ETZ-8WWEZ-WUUVA
 
 而后你将进入欢迎页，如下（以黑色模式为例，你的大概是白色的）
@@ -81,7 +82,7 @@ https://download3.vmware.com/software/WKST-1625-WIN/VMware-workstation-full-16.2
 ![](../assets/feishu/media/8920e0a212fd267cbb5472ec.png)
 
 > 注意：
-> 
+>
 > 有时候你选择的镜像可能无法识别到系统，只要你确认镜像没有问题即可忽视他的提示，如果出现“将使用简易安装”，那么你的安装会更轻松一些
 
 而后进行虚拟机命名，选择你认为合适的地址即可
@@ -106,7 +107,7 @@ https://download3.vmware.com/software/WKST-1625-WIN/VMware-workstation-full-16.2
 点击完成，你的虚拟机将开始运行，过程就像重装电脑一样（当然这取决于你使用的何种镜像文件）
 
 > 注意：
-> 
+>
 > 你的鼠标点击屏幕时会映射进去，因此你可能会疑惑自己的鼠标找不到了，关注下方的黄色横幅，使用 `Ctrl+Alt` 来将你的鼠标脱出
 
 这里我们已经看到了windows自己的安装程序，你只需要自行设置即可逐步安装，这里不再赘述
@@ -177,14 +178,14 @@ VMwarre内置了三种网络模式，你可以在上菜单栏的 `编辑->虚拟
 
   - 将物理网络桥接到虚拟机上，相当于虚拟机自己直接入了网关，就好像一个独立的机器一样，并从网络获取IP地址，在网关上也将看到这个虚拟机（和他的MAC地址）
   - 在下方的桥接设置中你可以选择桥接到哪一块网卡（将这个网卡连接的网关作为虚拟机网关）![](../assets/feishu/media/6835fb1083c30136546951ca.png)
-  
+
     - 例如你可以桥接到一个zerotier的虚拟网卡，那么相当于虚拟机也接入了虚拟网络
-  
+
     - 默认直接桥接到本机的默认网关
 - NAT模式
 
   - 将宿主机作为网关创建一层NAT，虚拟机从宿主机获取IP地址
-  
+
     - 需要注意的是，宿主机和虚拟机都将共享宿主机从网关获取的IP地址（因为宿主机在这个Vmware Net中也会分配到自己的IP地址）
 - 仅主机模式
 
@@ -689,10 +690,10 @@ systemctl status NetworkManager
   # 移动默认配置文件
   # 注意你的配置文件可能不在这里，名字也不一定是NetworkManager.conf
   mv /etc/NetworkManager/conf.d/NetworkManager.conf NetworkManager.conf_bak
-  
+
   # 新建一个空配置文件
   touch /etc/NetworkManager/conf.d/NetworkManager.conf
-  
+
   # 重启/重启服务
   systemctl restart NetworkManager
   ```
@@ -713,7 +714,7 @@ systemctl status NetworkManager
 
 ![](../assets/feishu/media/8236e842c8eb5af7c00ae205.png)
 
-选择你需要添加的磁盘，点击上方的`擦除磁盘` 然后点击`使用GPT初始化磁盘` 
+选择你需要添加的磁盘，点击上方的`擦除磁盘` 然后点击`使用GPT初始化磁盘`
 
 最后在`磁盘 --> LVM` 点击`Add Volume Group` 选择你的磁盘，命名卷名称后点击确定
 
@@ -751,12 +752,12 @@ lsblk
 
 ```Bash
 NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
-sda      8:0    0    64G  0 disk 
-├─sda1   8:1    0     1M  0 part 
+sda      8:0    0    64G  0 disk
+├─sda1   8:1    0     1M  0 part
 └─sda2   8:2    0    64G  0 part /
 sdb      8:16   0 931.5G  0 disk /mirror/debmirror
-sdc      8:32   0     1T  0 disk 
-sr0     11:0    1  1024M  0 rom 
+sdc      8:32   0     1T  0 disk
+sr0     11:0    1  1024M  0 rom
 ```
 
 你的新添加硬盘往往使用 `sdX (X是任意字母)` 标识，这里我们可以看到这个系统添加了`sdb(931.5GB) sdc(1TB)` 两块硬盘
@@ -826,7 +827,7 @@ This disk is currently in use - repartitioning is probably a bad idea.
 It's recommended to umount all file systems, and swapoff all swap
 partitions on this disk.
 
-Command (m for help): 
+Command (m for help):
 ```
 
 输入 `p` 打印当前分区表
@@ -837,7 +838,7 @@ Device     Start       End   Sectors Size Type
 /dev/sda2   4096 201326558 201322463  96G Linux filesystem
 ```
 
-记住`/dev/sda2` 的起始地址`START 4096` 
+记住`/dev/sda2` 的起始地址`START 4096`
 
 然后打印空闲分区表 `F` ，记住终止地址。
 
@@ -845,7 +846,7 @@ Device     Start       End   Sectors Size Type
 
 危险操作！
 
-然后删除本分区，按 `d`，再按下新建分区`n` 
+然后删除本分区，按 `d`，再按下新建分区`n`
 
 他会询问你新分区的起始地址和终止地址，按照你记住的填写（他会有一个default值，一般就是你的起始地址和终止地址，你只需要确认后使用空格即可）
 
@@ -882,8 +883,8 @@ df -h
 
 实验性文章警告：本文尚未完成且未经过充分验证
 
-硬件直通非常复杂，非专业人员请绕道，对于潜在的硬件损坏，本文不负任何责任  
-硬件直通非常复杂，非专业人员请绕道，对于潜在的硬件损坏，本文不负任何责任  
+硬件直通非常复杂，非专业人员请绕道，对于潜在的硬件损坏，本文不负任何责任
+硬件直通非常复杂，非专业人员请绕道，对于潜在的硬件损坏，本文不负任何责任
 硬件直通非常复杂，非专业人员请绕道，对于潜在的硬件损坏，本文不负任何责任
 
 #### CPU支持
@@ -912,11 +913,11 @@ df -h
 
 #### Linux内核修改
 
-危险！你即将修改Linux kernel设置，如果你不清楚你在干什么，立即关闭本教程  
-                    造成无法开机等任何损坏本文不承担任何责任                              
-危险！你即将修改Linux kernel设置，如果你不清楚你在干什么，立即关闭本教程  
-                    造成无法开机等任何损坏本文不承担任何责任                              
-危险！你即将修改Linux kernel设置，如果你不清楚你在干什么，立即关闭本教程  
+危险！你即将修改Linux kernel设置，如果你不清楚你在干什么，立即关闭本教程
+                    造成无法开机等任何损坏本文不承担任何责任
+危险！你即将修改Linux kernel设置，如果你不清楚你在干什么，立即关闭本教程
+                    造成无法开机等任何损坏本文不承担任何责任
+危险！你即将修改Linux kernel设置，如果你不清楚你在干什么，立即关闭本教程
 
 1. 修改内核参数，启用IOMMU，并更新内核文件
 
@@ -936,7 +937,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt"
 
 保存后，执行指令更新内核文件并重启
 
-      危险！你仍然有机会阻止灾难发生！        
+      危险！你仍然有机会阻止灾难发生！
 如果你不清楚这么做的后果，立即关闭本教程
 
 ```Shell
@@ -963,7 +964,7 @@ update-grub && reboot
 
 如果你遇到无法启动/报错等问题，你可能遇到了紧急情况，本文无法为你提供任何帮助
 
-1. 检查中断重映射(nterrupt remapping)是否启用如果你看到任意一行（取决于CPU）`AMD-Vi: Interrupt remapping enabled``DMAR-IR: Enabled IRQ remapping in x2apic mode` 那么你的中断重映射已经启用，`x2apic` 可能根据CPU的型号有变化如果你没有看到，或者直接没有输出，也许得去主板里的相关设置进行启用。不过即使这个选项没有启用也可以使用，但是性能会降低。或者，冒险启用不安全的中断重映射试试  危险！你正在执行破坏系统安全性的设置！   
+1. 检查中断重映射(nterrupt remapping)是否启用如果你看到任意一行（取决于CPU）`AMD-Vi: Interrupt remapping enabled``DMAR-IR: Enabled IRQ remapping in x2apic mode` 那么你的中断重映射已经启用，`x2apic` 可能根据CPU的型号有变化如果你没有看到，或者直接没有输出，也许得去主板里的相关设置进行启用。不过即使这个选项没有启用也可以使用，但是性能会降低。或者，冒险启用不安全的中断重映射试试  危险！你正在执行破坏系统安全性的设置！
 如果你不清楚这么做的后果，立即关闭本教程
 
    ```Shell

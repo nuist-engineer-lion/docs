@@ -1,10 +1,11 @@
 ---
+title: "MBR 与 GPT 兼容性表"
+author: "海上修机师"
+source: "飞书表格导出"
 tags:
   - 修机
   - 引导
 ---
-
-# MBR 与 GPT 兼容性表
 
 | A | B | C |
 | --- | --- | --- |

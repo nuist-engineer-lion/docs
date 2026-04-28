@@ -1,10 +1,11 @@
 ---
+title: "常见蓝屏代码"
+author: "海上修机师"
+source: "飞书知识库"
 tags:
   - 修机
   - 故障排查
 ---
-
-# 常见蓝屏代码
 
 摘自 [错误检查代码参考 - Windows drivers](https://learn.microsoft.com/zh-cn/windows-hardware/drivers/debugger/bug-check-code-reference2)
 

@@ -1,11 +1,12 @@
 ---
+title: "修机教程编写项目"
+author: "海上修机师"
+source: "飞书知识库"
 tags:
   - 运营
 ---
 
-# 修机教程编写项目
-
-类型：多维表格/Base  
+类型：多维表格/Base
 Base token：`U2bIbIOoNalvuKsgxuickdQxnXf`
 
 ## 数据表

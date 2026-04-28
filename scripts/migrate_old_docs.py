@@ -12,6 +12,7 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[1]
 OLD_ROOT = ROOT.parent / "old-docs"
 DOCS_DIR = ROOT / "docs"
+PUBLIC_AUTHOR = "海上修机师"
 
 
 SECTION_INFO = {
@@ -554,6 +555,7 @@ def indent_block(text: str) -> str:
     cleaned = html_to_plain_markdown(text).strip()
     if not cleaned:
         cleaned = "原始提示块内容为空。"
+    cleaned = re.sub(r"^#\s+", "## ", cleaned, flags=re.M)
     return "\n".join(f"    {line}" if line else "" for line in cleaned.splitlines())
 
 
@@ -690,7 +692,43 @@ def normalize_text(
             "其中涉及时间、价格、推荐和组织状态的内容，请按历史资料理解。\n\n"
         )
         text = note + text
-    return text + "\n"
+    return clean_markdown_output(normalize_heading_levels(text))
+
+
+def clean_markdown_output(text: str) -> str:
+    lines = [line.rstrip() for line in text.splitlines()]
+    while lines and not lines[-1]:
+        lines.pop()
+    return "\n".join(lines)
+
+
+def normalize_heading_levels(text: str) -> str:
+    lines: list[str] = []
+    removed_title = False
+    in_fence = False
+    fence_marker = ""
+
+    for line in text.splitlines():
+        stripped = line.lstrip()
+        if stripped.startswith(("```", "~~~")):
+            marker = stripped[:3]
+            if not in_fence:
+                in_fence = True
+                fence_marker = marker
+            elif marker == fence_marker:
+                in_fence = False
+                fence_marker = ""
+            lines.append(line)
+            continue
+
+        if not in_fence and line.startswith("# "):
+            if not removed_title:
+                removed_title = True
+                continue
+            line = "#" + line
+        lines.append(line)
+
+    return "\n".join(lines).strip()
 
 
 def write_page(page: Page, source_to_dest: dict[Path, Path], title_to_dest: dict[str, Path]) -> None:
@@ -713,19 +751,62 @@ def page_tags(page: Page) -> list[str]:
     return list(dict.fromkeys(tags))
 
 
+def page_author(page: Page) -> str:
+    return PUBLIC_AUTHOR
+
+
+def page_source(page: Page) -> str:
+    source = rel_old(page.source)
+    if source.startswith("feishu/_embedded/sheets/"):
+        return "飞书表格导出"
+    if source.startswith("feishu/"):
+        return "飞书知识库"
+    if source.startswith("github/"):
+        return "旧 GitHub 文档站"
+    return "旧文档库"
+
+
+def yaml_string(value: str) -> str:
+    escaped = value.replace("\\", "\\\\").replace('"', '\\"')
+    return f'"{escaped}"'
+
+
+def metadata_frontmatter(title: str, source: str, tags: list[str] | None = None) -> str:
+    lines = [
+        f"title: {yaml_string(title)}",
+        f"author: {yaml_string(PUBLIC_AUTHOR)}",
+        f"source: {yaml_string(source)}",
+    ]
+    if tags:
+        lines.append("tags:")
+        lines.extend(f"  - {tag}" for tag in tags)
+    return "\n".join(lines) + "\n"
+
+
+def add_static_frontmatter(text: str, title: str, source: str, tags: list[str] | None = None) -> str:
+    body = clean_markdown_output(text.lstrip())
+    if not body:
+        return f"---\n{metadata_frontmatter(title, source, tags)}---\n"
+    return f"---\n{metadata_frontmatter(title, source, tags)}---\n\n{body}\n"
+
+
 def add_frontmatter(text: str, page: Page) -> str:
-    tag_lines = "\n".join(f"  - {tag}" for tag in page_tags(page))
-    frontmatter = f"tags:\n{tag_lines}\n"
+    frontmatter = metadata_frontmatter(page.title, page_source(page), page_tags(page))
+    body_text = clean_markdown_output(text)
 
-    if text.startswith("---\n"):
-        end = text.find("\n---\n", 4)
+    if body_text.startswith("---\n"):
+        end = body_text.find("\n---\n", 4)
         if end != -1:
-            existing = text[4:end].strip()
-            body = text[end + 5 :].lstrip("\n")
+            existing = body_text[4:end].strip()
+            body = clean_markdown_output(body_text[end + 5 :].lstrip("\n"))
             merged = frontmatter + (existing + "\n" if existing else "")
-            return f"---\n{merged}---\n\n{body}"
+            if not body:
+                return f"---\n{merged}---\n"
+            return f"---\n{merged}---\n\n{body}\n"
 
-    return f"---\n{frontmatter}---\n\n{text}"
+    if not body_text:
+        return f"---\n{frontmatter}---\n"
+    return f"---\n{frontmatter}---\n\n{body_text}\n"
 
 
 def sort_key(page: Page) -> tuple[int, str, str]:
@@ -744,8 +825,6 @@ def write_section_indexes(pages: list[Page]) -> None:
         section_dir = DOCS_DIR / section
         section_dir.mkdir(parents=True, exist_ok=True)
         lines = [
-            f"# {title}",
-            "",
             description,
             "",
             "## 页面索引",
@@ -755,13 +834,14 @@ def write_section_indexes(pages: list[Page]) -> None:
             link = make_relative(DOCS_DIR / page.dest, section_dir / "index.md")
             lines.append(f"- [{page.title}]({link})")
         lines.append("")
-        (section_dir / "index.md").write_text("\n".join(lines), encoding="utf-8")
+        (section_dir / "index.md").write_text(
+            add_static_frontmatter("\n".join(lines), title, "站点目录", [title]),
+            encoding="utf-8",
+        )
 
 
 def write_home() -> None:
     lines = [
-        "# 海上修机师知识库",
-        "",
         "这里整理电脑维修、软件配置、网络基础、硬件实践、团队运维和历史档案。内容由旧飞书知识库和旧 GitHub 文档站迁移而来，公开版已经剥离内部标识并重新组织目录。",
         "",
         "## 快速入口",
@@ -781,7 +861,10 @@ def write_home() -> None:
             "",
         ]
     )
-    (DOCS_DIR / "index.md").write_text("\n".join(lines), encoding="utf-8")
+    (DOCS_DIR / "index.md").write_text(
+        add_static_frontmatter("\n".join(lines), "海上修机师知识库", "站点目录"),
+        encoding="utf-8",
+    )
 
 
 def toml_string(value: str) -> str:
@@ -826,6 +909,7 @@ def write_config(pages: list[Page]) -> None:
             "[project.theme]",
             'variant = "classic"',
             'language = "zh"',
+            'custom_dir = "overrides"',
             "features = [",
             '  "content.action.edit",',
             '  "content.action.view",',

@@ -1,11 +1,12 @@
 ---
+title: "office的安装"
+author: "海上修机师"
+source: "飞书知识库"
 tags:
   - 软件
 ---
 
-# office的安装
-
-# 使用office tool plus安装
+## 使用office tool plus安装
 
 ## 部署
 
@@ -63,7 +64,7 @@ ospp /inslicid <填版本号> /sethst:kms.loli.beer /setprt:1688 /act
 
 Office tool plus更详细激活方式参考[官方教程](https://www.coolhub.top/archives/14#:~:text=%E4%BD%BF%E7%94%A8%20Office%20Tool%20Plus%20%E8%87%AA%E5%8A%A8%E6%BF%80%E6%B4%BB%20Office)。
 
-# 安装低版本office
+## 安装低版本office
 
 老版本的office可以从[msdn](https://msdn.itellyou.cn/)上获取到。
 

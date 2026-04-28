@@ -1,13 +1,14 @@
 ---
+title: "VSCode及环境配置"
+author: "海上修机师"
+source: "飞书知识库"
 tags:
   - 软件
 ---
 
-# VSCode及环境配置
-
 本文暂时仅介绍Windows平台下的安装配置
 
-# VSCode安装
+## VSCode安装
 
 1. 点击[code.visualstudio.com](https://code.visualstudio.com/docs/?dv=win64user)下载安装包
 2. 启动安装程序，一路下一步，直到如图所示，建议全部勾选
@@ -18,7 +19,7 @@ tags:
 
 ![](../assets/feishu/media/755e89fa53f6bd0e4ff48353.png)
 
-# 环境配置
+## 环境配置
 
 注：此部分建议自备**魔法**，如果机主没有，可以用手机临时给他共享个，此教程请看附录
 
@@ -89,7 +90,7 @@ tags:
 
 可以采用上文提到的Scoop一键安装NodeJs：`scoop install nodejs`，也可以到官网https://nodejs.org/下载安装包
 
-# 推荐的vsc插件
+## 推荐的vsc插件
 
 ## CodeSnap
 

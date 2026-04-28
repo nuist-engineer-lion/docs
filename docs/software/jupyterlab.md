@@ -1,15 +1,16 @@
 ---
+title: "JupyterLab"
+author: "海上修机师"
+source: "飞书知识库"
 tags:
   - 软件
 ---
 
-# JupyterLab
-
-# 概述
+## 概述
 
 你不觉得每次都用概述开头很奇怪吗
 
-# 安装环境
+## 安装环境
 
 你可以使用anaconda来安装虚拟环境，但是这里使用`miniconda`
 
@@ -43,7 +44,7 @@ conda init
 
 务必替换源，否则jupyterLab插件加载将会报错
 
-# 安装JupyterLab
+## 安装JupyterLab
 
 创建一个虚拟环境用于存放jupyter，由于`python 3.7结束维护` 我们使用`python3.8` ，实际上更推荐你使用`python3.10` 作为日常使用版本
 
@@ -98,7 +99,7 @@ c.PasswordIdentityProvider.hashed_password = 'argon2:整个字符串替换为你
 c.ServerApp.open_browser = False
 # 打开jupyter lab的端口，端口自定义
 c.ServerApp.port = 8866
-# 允许远程访问 
+# 允许远程访问
 c.ServerApp.allow_remote_access = True
 # jupyter lab工作文件的路径，根据你的需求设置
 c.ServerApp.root_dir = 'jupyterCode'
@@ -135,7 +136,7 @@ jupyter-lab --no-browser
 
 启动后观察是否有`WARN` 或`ERROR` ，排查故障
 
-# 启用System服务
+## 启用System服务
 
 由于我们是用户级别，没有权限直接操作系统的`systemd` ，好消息是，如果你的`systemd`版本足够，那么可以以用户身份启用任务。假设你的用户名为`jupyter`，那么：
 
@@ -184,11 +185,11 @@ systemctl --user start jupyter.service
 
 ```Bash
 systemctl --user status jupyter
-# 
+#
 journalctl --user -xue jupyter
 ```
 
-# 启用Nginx
+## 启用Nginx
 
 [参考资料](https://blog.csdn.net/qq_35808136/article/details/89677749)
 
@@ -198,9 +199,9 @@ journalctl --user -xue jupyter
 
 ```Plain Text
 location / {
-     proxy_pass http://127.0.0.1:8866;  #通过配置端口指向部署websocker的项目  
-     proxy_set_header Upgrade $http_upgrade;    
-     proxy_set_header Connection "Upgrade";    
+     proxy_pass http://127.0.0.1:8866;  #通过配置端口指向部署websocker的项目
+     proxy_set_header Upgrade $http_upgrade;
+     proxy_set_header Connection "Upgrade";
      proxy_set_header X-real-ip $remote_addr;
      proxy_set_header X-Forwarded-For $remote_addr;
 }

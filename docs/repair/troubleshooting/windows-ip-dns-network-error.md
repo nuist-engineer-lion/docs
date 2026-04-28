@@ -1,10 +1,11 @@
 ---
+title: "Windows IP/DNS 配置异常导致无法联网"
+author: "海上修机师"
+source: "旧 GitHub 文档站"
 tags:
   - 修机
   - 故障排查
 ---
-
-# Windows IP/DNS 配置异常导致无法联网
 
 ## 故障描述
 

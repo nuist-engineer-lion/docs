@@ -1,11 +1,12 @@
 ---
+title: "Apt镜像服务器构建"
+author: "海上修机师"
+source: "飞书知识库"
 tags:
   - 软件
 ---
 
-# Apt镜像服务器构建
-
-# 概述
+## 概述
 
 如果你同时有多台ubuntu服务器，而且你们学校又没有镜像站，同时觉得本地的镜像服务站网速比较慢，或者你是一个极端追求速度的玩家，那么需要使用一个本地的自建镜像站来提高`apt包`的下载速度
 
@@ -13,7 +14,7 @@ tags:
 
 还有例如锁定包版本、包投毒之类的玩法可以探索
 
-# Tuna 
+## Tuna
 
 Tuna开源了他们的镜像服务器管理方案，使用一主多从（类似Nginx的思想）的方式构建镜像源服务器，你可以在 [这里](https://github.com/tuna/tunasync) 找到源码
 
@@ -21,7 +22,7 @@ Tuna开源了他们的镜像服务器管理方案，使用一主多从（类似N
 
 如果你愿意续写这段教程，欢迎联系我们!
 
-# debmirror
+## debmirror
 
 `debmirror` 可以很好的对镜像站进行同步，你可以选择性的同步部分源，这里展示如何构建一个本地的`Ubuntu 20 22` APT镜像站
 
@@ -95,7 +96,7 @@ apt install debmirror gnupg xz-utils -y
 ```
 
 > 修订：20240529
-> 
+>
 > 在后续的实践中，我们发现：Ubuntu不会直接通报自己的系统架构，但是会通过文件如 dists/jammy/main/amd64 的路径来找到自己的架构的包，因此不再需要上一层的 amd64做区分
 
 其中，`/mirror`、  `mirrorkeyring` 、`script` 、`debmirror` 三个文件夹的名字并不重要，也不一定在根目录下创建，你可以在配置文件中修改。但我们建议你保持默认。
@@ -154,24 +155,24 @@ debmirror $mirrordir -a $arch -p -h $server -r $inPath -d $release -s $section -
 ```
 
 > 修订:20240529
-> 
+>
 > 在实践中我们发现ubuntu系统在安装时指定镜像站点可能会请求到 multiverse的包，如果你没有同步这个分支就会引发安装报错最终无法安装。
-> 
-> 截止更新前，`jammy focal` 两个版本的`amd64` 一共不到`800GB` 
-> 
+>
+> 截止更新前，`jammy focal` 两个版本的`amd64` 一共不到`800GB`
+>
 > 解决方案：
-> 
+>
 > - 全部同步（已经修改了上方的示例文件，默认为全部同步）
 > - 在安装时使用全部同步的源如清华源，之后手动修改apt source为你的源，遵从下方的指引，确保mutiverse有一个正确的源可用
 > - 缺乏multiuniverse的包题会导致Ubuntu无法在安装时直接指定为你的镜像站
-> 
+>
 > ![](../assets/feishu/media/a2c5b86bd11b4738195be50e.png)
 
 - `arch` ：同步的版本，这里使用x86
 - `section` ： 同步的仓库
 - `release` ：版本仓库，建议保持默认
 
-  - 这里删去了`security` 
+  - 这里删去了`security`
   - 控制你希望同步的ubuntu版本，这里为 `focal (20) 和 jammy(22)`
 - `server` ：你希望同步的目标镜像源
 
@@ -271,7 +272,7 @@ systemctl start aptmirror.timer
 
 ## Nginx部署
 
-# Apt-cache-ng
+## Apt-cache-ng
 
 这个东西的效果不是很好，已经弃用，本质上是缓存apt的请求，然后保留一定的天数（可以自己设置，设置为36000天相当于永久缓存）
 

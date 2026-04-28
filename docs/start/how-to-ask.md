@@ -1,9 +1,10 @@
 ---
+title: "如何提问"
+author: "海上修机师"
+source: "飞书知识库"
 tags:
   - 入门
 ---
-
-# 如何提问
 
 ![whiteboard](../assets/feishu/whiteboards/DBmFwEQGIhnSqDb1F1ZcFcryn6d.jpg)
 

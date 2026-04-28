@@ -1,16 +1,17 @@
 ---
+title: "摘录自msdn的教程文章"
+author: "海上修机师"
+source: "飞书知识库"
 tags:
   - 修机
   - 装机
 ---
 
-# 摘录自msdn的教程文章
-
-# 如果格式有误，请看html
+## 如果格式有误，请看html
 
 [查看嵌入素材](../../assets/feishu/media/5e22bba8090c68cee3d3644d.html)
 
-# 复制过来的
+## 复制过来的
 
 ## 关于软件中正版、盗版、原版、纯净版、精简版、破解版、汉化版的个人理解
 
@@ -61,7 +62,7 @@ SHA1只是一种指纹的算法，长度40位，常见的还有MD5（长度32位
 必备：8G以上U盘一个。
 
 - 1、安装 Ventoy【要求1.0.62版本以上】，已安装可跳过
-- 
+-
 
   1. [https://github.com/ventoy/Ventoy/releases](https://github.com/ventoy/Ventoy/releases)
   2. [https://gitee.com/longpanda/Ventoy/releases/](https://gitee.com/longpanda/Ventoy/releases/)
@@ -93,18 +94,18 @@ Windows 11 正式版、Beta 版、Dev 版均已支持安装安卓子系统。
    1. 安装Hyper-V功能。
 
    1. 注1：家庭版默认没有Hyper-V功能，需要额外脚本开启：
-   
+
       1. 打开记事本，粘贴以下代码，并另存为Hyper-V.cmd
       2. `pushd "%~dp0"dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum >hyper-v.txtfor /f %%i in ('findstr /i . hyper-v.txt 2^>nul') do dism /online /norestart /add-package:"%SystemRoot%\servicing\Packages\%%i"del hyper-v.txtDism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /ALL`
       3. 右键点击Hyper-V.cmd，以管理员身份运行，即开始安装Hyper-V。
       4. 批量命令处理完成后需要输入“Y”会自动重启，即完成安装。
-      5. 
-      6. 
+      5.
+      6.
    2. 注2：测试过家庭版，最终虽然能够正常安装安卓子系统，但是无法启动，原因不详。
    3. 更新 Windows商店。（当前商店最新版本号是22110.1401.3.0）
 
    1. 更新 应用安装程序
-   2. 
+   2.
 3. 下载Android子系统，保存于"C:\Users\Administrator\Downloads\MicrosoftCorporationII.WindowsSubsystemForAndroid_1.7.32815.0_neutral\_\_\_8wekyb3d8bbwe.Msixbundle"。
 
 ![](../../assets/feishu/media/fadcc629d0ecd45d0bec3332.png)
@@ -151,8 +152,8 @@ Windows 11 正式版、Beta 版、Dev 版均已支持安装安卓子系统。
 2. ISO制作U盘启动盘，推荐使用UltraISO、Rufus、Ventoy，保障纯净安装。#TODO 制作方法X
 3. 在没有 TPM 和 SecureBoot 的设备上安装Windows 11：将下面的代码保存为.reg注册表文件，保存到U盘。进入Windows安装流程，遇到“此PC无法运行Windows 11”或类似提示时，返回到版本选择界面，插入包含注册表文件的U盘，按 Shift+F10 ，在命令提示行输入“Notepad”启动记事本，点击“文件”-“打开”，定位到注册表文件位置（如果无法显示文件，在文件名处输入“*.*”，回车），右键点击注册表文件，选择合并并确认，关闭记事本，退出命令行，继续选择版本并开始安装。正常情况下不会再出现提示，并显示许可证界面。
 4. Windows Registry Editor Version 5.00
-5. [HKEY_LOCAL_MACHINE\SYSTEM\Setup\LabConfig]  
-"BypassTPMCheck"=dword:00000001  
+5. [HKEY_LOCAL_MACHINE\SYSTEM\Setup\LabConfig]
+"BypassTPMCheck"=dword:00000001
 "BypassSecureBootCheck"=dword:00000001
 6. X
 
@@ -177,32 +178,32 @@ Windows 11 正式版、Beta 版、Dev 版均已支持安装安卓子系统。
 
 内容仅摘录供参考，详情以各产品官方网站发布为准，均来源于网络收集，如有侵权可联系删除。
 
-下载地址：[**HTTP**](https://github.com/ventoy/Ventoy/releases/download/v1.0.46/ventoy-1.0.46-windows.zip)  
+下载地址：[**HTTP**](https://github.com/ventoy/Ventoy/releases/download/v1.0.46/ventoy-1.0.46-windows.zip)
 **BT下载**：magnet:?xt=urn:btih:737330E4BBC5369BC6AAF78AA26AF30B8FEC1E06
 
 1. Windows系统安装 Ventoy
 
-下载安装包，例如 ventoy-1.0.00-windows.zip 然后解压开。  
+下载安装包，例如 ventoy-1.0.00-windows.zip 然后解压开。
 直接执行 `Ventoy2Disk.exe` 如下图所示，选择磁盘设备，然后点击 Install 按钮即可。
 
 ![](../../assets/feishu/media/99a74ba8df6ed77dad4a7014.png)
 
 ![](../../assets/feishu/media/1aeae7bf7d335494415b657c.png)
 
-**安装包内 Ventoy 版本**：当前安装包中的Ventoy版本号  
-**设备内部 Ventoy 版本**：U盘中已安装的Ventoy版本号，如果为空则表示U盘内没有安装Ventoy  
-**左侧显示的 MBR/GPT**：用户当前选择的分区格式，可以在选项中修改，只对安装过程有效  
-**右侧显示的 MBR/GPT**：设备当前使用的分区格式 （也就是当初安装Ventoy时选择的分区格式），如果U盘内没有安装Ventoy，则会显示空  
-**安装**：把Ventoy安装到U盘，只有第一次的时候需要，其他情况就只需要Update升级即可  
+**安装包内 Ventoy 版本**：当前安装包中的Ventoy版本号
+**设备内部 Ventoy 版本**：U盘中已安装的Ventoy版本号，如果为空则表示U盘内没有安装Ventoy
+**左侧显示的 MBR/GPT**：用户当前选择的分区格式，可以在选项中修改，只对安装过程有效
+**右侧显示的 MBR/GPT**：设备当前使用的分区格式 （也就是当初安装Ventoy时选择的分区格式），如果U盘内没有安装Ventoy，则会显示空
+**安装**：把Ventoy安装到U盘，只有第一次的时候需要，其他情况就只需要Update升级即可
 **升级**：升级U盘中的Ventoy版本，升级不会影响已有的ISO文件
 
 **注意：**
 
 1. 如果Ventoy2Disk.exe安装或升级一直提示失败，也可以使用 VentoyLiveCD 的方式，参考 [说明](https://www.ventoy.net/cn/doc_livecd.html)
-2. Ventoy可以安装在U盘上，也可以安装在本地硬盘上。为防止误操作，Ventoy2Disk.exe默认只列出U盘，你可以勾选 `配置选项-->显示所有设备` 这个选项。  
+2. Ventoy可以安装在U盘上，也可以安装在本地硬盘上。为防止误操作，Ventoy2Disk.exe默认只列出U盘，你可以勾选 `配置选项-->显示所有设备` 这个选项。
 此时会列出包括系统盘在内的所有磁盘，但此时你自己务必要小心操作，不要选错盘。
 3. MBR/GPT 分区格式选项只在安装时会用，升级的时候是不管的，也就是说升级是不会改变现有分区格式的，必须重新安装才可以。
-4. 安装完之后，U盘存放镜像文件的第1个分区会被格式化为 exfat 系统，你也可以手动把它重新格式化为 FAT32/NTFS/UDF/XFS/Ext2/3/4 系统。  
+4. 安装完之后，U盘存放镜像文件的第1个分区会被格式化为 exfat 系统，你也可以手动把它重新格式化为 FAT32/NTFS/UDF/XFS/Ext2/3/4 系统。
 对于普通U盘建议使用exFAT文件系统，对于大容量的移动硬盘、本地硬盘、SSD等建议使用NTFS文件系统。
 
    1. Linux系统安装 Ventoy —— 图形化模式
@@ -211,7 +212,7 @@ Windows 11 正式版、Beta 版、Dev 版均已支持安装安卓子系统。
 
 1. Linux系统安装 Ventoy —— 命令行模式
 
-下载安装包，例如 ventoy-1.0.00-linux.tar.gz, 然后解压开.  
+下载安装包，例如 ventoy-1.0.00-linux.tar.gz, 然后解压开.
 在终端以root权限执行 `sudo sh Ventoy2Disk.sh -i /dev/XXX ` 其中 /dev/XXX 是U盘对应的设备名，比如 /dev/sdb
 
 Ventoy2Disk.sh 命令 [选项] /dev/XXX
@@ -242,20 +243,20 @@ Ventoy2Disk.sh 命令 [选项] /dev/XXX
 2. 必须cd到ventoy解压之后的目录下执行此脚本
 3. 请务必输入正确的设备名称，ventoy不会检查你输入的设备是U盘还是本地硬盘，如果输错了有可能会把你的系统盘格式化掉哦！
 
-**请注意：选择安装的时候，磁盘将会被格式化，里面所有的数据都会丢失！**  
-你只需要安装一次Ventoy即可，剩下的就只需要把各种ISO/WIM/VHD(x)/EFI文件拷贝到U盘中就可以了.  
+**请注意：选择安装的时候，磁盘将会被格式化，里面所有的数据都会丢失！**
+你只需要安装一次Ventoy即可，剩下的就只需要把各种ISO/WIM/VHD(x)/EFI文件拷贝到U盘中就可以了.
 你也可以把它当成普通U盘使用，保存普通文件、图片或视频等，不会影响Ventoy的功能。
 
 1. 拷贝镜像文件
 
-安装完成之后，U盘会被分成两个分区（参考 [说明](https://www.ventoy.net/cn/doc_disk_layout.html)）。  
-其中第1个分区（就是容量大的那个分区，也可以称之为 镜像分区）将会被格式化为exFAT文件系统（你也可以再手动重新格式化成其他支持的文件系统，比如 NTFS/FAT32/UDF/XFS/Ext2/3/4 等，参考 [说明](https://www.ventoy.net/cn/doc_disk_layout.html)），你只需要把ISO/WIM等文件拷贝到这里面即可。你可以把文件放在任意目录以及子目录下。Ventoy默认会遍历所有的目录和子目录，找出所有的镜像文件，并按照字母排序之后显示在菜单中。  
+安装完成之后，U盘会被分成两个分区（参考 [说明](https://www.ventoy.net/cn/doc_disk_layout.html)）。
+其中第1个分区（就是容量大的那个分区，也可以称之为 镜像分区）将会被格式化为exFAT文件系统（你也可以再手动重新格式化成其他支持的文件系统，比如 NTFS/FAT32/UDF/XFS/Ext2/3/4 等，参考 [说明](https://www.ventoy.net/cn/doc_disk_layout.html)），你只需要把ISO/WIM等文件拷贝到这里面即可。你可以把文件放在任意目录以及子目录下。Ventoy默认会遍历所有的目录和子目录，找出所有的镜像文件，并按照字母排序之后显示在菜单中。
 你可以通过插件配置让Ventoy只搜索某一个固定的目录，或是跳过某些特殊目录等。详细的控制 Ventoy 搜索路径的方法请参考 [控制 Ventoy 搜索路径方法总结](https://www.ventoy.net/cn/doc_search_path.html)
 
 1. 升级 Ventoy
 
-如果Ventoy发布了新版本之后，你可以点击 `升级` 按钮进行升级，或者Linux系统中使用 -u 选项进行升级。  
-**需要说明的是，升级操作是安全的，不会影响现有的镜像文件，也不会重新把镜像分区改成exFAT格式。**  
+如果Ventoy发布了新版本之后，你可以点击 `升级` 按钮进行升级，或者Linux系统中使用 -u 选项进行升级。
+**需要说明的是，升级操作是安全的，不会影响现有的镜像文件，也不会重新把镜像分区改成exFAT格式。**
 你可以认为升级只是把第二个分区（32MB的VTOYEFI分区）内的Ventoy启动文件覆盖了，不会动到镜像分区，因此镜像文件不会丢失。即使你当初安装完成之后，把镜像分区重新格式化为了NTFS，升级的时候也不会再改回exFAT。
 
 ## 硬件检测工具
@@ -264,7 +265,7 @@ Ventoy2Disk.sh 命令 [选项] /dev/XXX
 
 1、微软官方版本（2.3.210625001-s2）
 
-下载地址：[HTTP下载](https://aka.ms/GetPCHealthCheckApp)  
+下载地址：[HTTP下载](https://aka.ms/GetPCHealthCheckApp)
 BT下载：magnet:?xt=urn:btih:9EB34452EC2E2570274C49B7E8400B4EA36A8B37
 
 校验信息：
@@ -277,7 +278,7 @@ BT下载：magnet:?xt=urn:btih:9EB34452EC2E2570274C49B7E8400B4EA36A8B37
 
 ![](../../assets/feishu/media/6c0c7af63fc60c485c25c271.png)
 
-下载地址：[HTTP下载](https://github.com/rcmaehl/WhyNotWin11/releases/download/2.3.1/WhyNotWin11.exe)  
+下载地址：[HTTP下载](https://github.com/rcmaehl/WhyNotWin11/releases/download/2.3.1/WhyNotWin11.exe)
 BT下载：magnet:?xt=urn:btih:86081274F7E1547576BD78EA83254DFCB94A1E35
 
 校验信息：
@@ -342,7 +343,7 @@ Windows 11 中的某些功能在上面列出的最低要求之外，又增加了
 - [**S 模式**](https://docs.microsoft.com/zh-CN/windows/deployment/s-mode)现在仅对 Windows 11 家庭版可用。
 - **Skype MeetNow** 由“聊天”替代。
 - [**截图工具**](https://support.microsoft.com/zh-CN/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b)可继续使用，但 Windows 10 版本中的旧设计和功能由之前名为“截图和草图”应用中的设计和功能代替。
-- [“开始](https://support.microsoft.com/zh-CN/windows/see-what-s-on-the-start-menu-a8ccb400-ad49-962b-d2b1-93f453785a13)”菜单 
+- [“开始](https://support.microsoft.com/zh-CN/windows/see-what-s-on-the-start-menu-a8ccb400-ad49-962b-d2b1-93f453785a13)”菜单
 - 在 Windows 11 中有较大改变，包括弃用和移除以下主要功能：
 
   - 不再支持已命名组和应用文件夹，取消了布局的调整大小功能。
@@ -350,7 +351,7 @@ Windows 11 中的某些功能在上面列出的最低要求之外，又增加了
   - 动态图块将不再可用。要快速预览动态内容，请查看新的小组件功能。
 - [**平板模式**](https://docs.microsoft.com/zh-CN/windows-hardware/design/device-experiences/continuum)被移除，新功能将体现在键盘的连接和分离状态中。
 - **任务栏**
--  
+-
 - 功能包括以下改变：
 
   - “人脉”不再存在于任务栏中。
@@ -368,7 +369,7 @@ Windows 11 中的某些功能在上面列出的最低要求之外，又增加了
 - [**画图 3D**](https://www.microsoft.com/zh-CN/p/paint-3d/9nblggh5fv99?rtc=1&activetab=pivot:overviewtab)
 - [**Skype**](https://www.microsoft.com/zh-CN/p/skype/9wzdncrfj364?rtc=1&activetab=pivot:overviewtab)
 
- 
+
 
 ## U盘启动快捷键
 
@@ -380,7 +381,7 @@ Windows 11 中的某些功能在上面列出的最低要求之外，又增加了
 
 注：不熟悉主板品牌的建议先用F12尝试，或者按下面表格提供的按键尝试。如果都无法使用，则考虑方法二。（有些品牌主板在刚开机时的屏幕下方也会显示启动快捷键）
 
- 
+
 
 **方法二、进入BIOS设置第一启动项：**
 
@@ -388,7 +389,7 @@ Windows 11 中的某些功能在上面列出的最低要求之外，又增加了
 
 建议：在系统安装完成后，将第一启动项改为硬盘启动（系统盘）。
 
- 
+
 
 附录：各品牌主板的快捷键按钮:
 

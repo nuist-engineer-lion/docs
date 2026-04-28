@@ -1,10 +1,11 @@
 ---
+title: "基于windows的NAS"
+author: "海上修机师"
+source: "飞书知识库"
 tags:
   - 进阶
   - NAS
 ---
-
-# 基于windows的NAS
 
 关于本文的所有内容，可以通过搜索“WinNAS”来进一步了解。
 
@@ -13,11 +14,11 @@ tags:
 
 另，这篇我是根据我自己的配置来写的，有些服务用不到你们可以跳过。
 
-# 安装windows系统
+## 安装windows系统
 
 参见【】，建议选“专业版”或“专业工作站版”
 
-# 启用一些功能
+## 启用一些功能
 
 搜索里搜索“功能”
 
@@ -30,7 +31,7 @@ tags:
 - 适用于Linux的Windows子系统
 - 虚拟机平台
 
-# 安装wsl2
+## 安装wsl2
 
 !!! note "💡 提示"
     全程可以不用魔法上网
@@ -47,7 +48,7 @@ echo [wsl2] > %UserProfile%\.wslconfig && echo networkingMode=mirrored >> %UserP
 
 然后按引导完成安装（密码简单点就行，晚点会搞防火墙，没人能入侵的）
 
-# 安装Docker
+## 安装Docker
 
 打开`cmd`，输入`wsl ~`，进入linux命令行
 
@@ -60,7 +61,7 @@ wget -O- https://get.docker.com/ | sudo -E sh
 
 此时，如果能正常执行`docker run hello-world`，就说明安装成功了
 
-# 让wsl2开机自启并保持常驻
+## 让wsl2开机自启并保持常驻
 
 按`Win+R`，输入`shell:startup`，在弹出来的文件夹里新建一个vbs文件（文件名随意：如abc.vbs），里面输入
 
@@ -69,7 +70,7 @@ Set ws = CreateObject("Wscript.Shell")
 ws.run "wsl -d Ubuntu", vbhide
 ```
 
-# 更新ubuntu并安装ssh
+## 更新ubuntu并安装ssh
 
 打开wsl，依次执行
 

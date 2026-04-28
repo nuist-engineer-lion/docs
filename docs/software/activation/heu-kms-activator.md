@@ -1,10 +1,11 @@
 ---
+title: "HEU_KMS_Activator"
+author: "海上修机师"
+source: "飞书知识库"
 tags:
   - 软件
   - 软件激活
 ---
-
-# HEU_KMS_Activator
 
 [Releases · zbezj/HEU_KMS_Activator](https://github.com/zbezj/HEU_KMS_Activator/releases)
 

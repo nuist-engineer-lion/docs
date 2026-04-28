@@ -1,10 +1,11 @@
 ---
+title: "Win11 白屏闪烁排查"
+author: "海上修机师"
+source: "旧 GitHub 文档站"
 tags:
   - 修机
   - 故障排查
 ---
-
-# Win11 白屏闪烁排查
 
 ## 故障演示
 

@@ -1,9 +1,10 @@
 ---
+title: "OSI 七层模型"
+author: "海上修机师"
+source: "旧 GitHub 文档站"
 tags:
   - 网络
 ---
-
-# OSI 七层模型
 
 参考资料：
 

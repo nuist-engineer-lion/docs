@@ -1,10 +1,11 @@
 ---
+title: "重装系统后 Boot failed 排查"
+author: "海上修机师"
+source: "旧 GitHub 文档站"
 tags:
   - 修机
   - 故障排查
 ---
-
-# 重装系统后 Boot failed 排查
 
 ## 现象
 1. 部分设备在 U 盘启动后会保留 Windows Boot 优先级，重装完成重启时建议先拔出 U 盘。

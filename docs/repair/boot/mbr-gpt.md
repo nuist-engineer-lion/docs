@@ -1,10 +1,11 @@
 ---
+title: "MBR和GPT"
+author: "海上修机师"
+source: "飞书知识库"
 tags:
   - 修机
   - 引导
 ---
-
-# MBR和GPT
 
 参考：
 

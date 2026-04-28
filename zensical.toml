@@ -139,6 +139,7 @@ nav = [
 [project.theme]
 variant = "classic"
 language = "zh"
+custom_dir = "overrides"
 features = [
   "content.action.edit",
   "content.action.view",

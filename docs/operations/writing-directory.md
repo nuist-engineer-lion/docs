@@ -1,9 +1,10 @@
 ---
+title: "撰写目录"
+author: "海上修机师"
+source: "飞书知识库"
 tags:
   - 运营
 ---
-
-# 撰写目录
 
 一、工具的使用
 
@@ -77,7 +78,7 @@ tags:
    2. matlab
    3. arcgis
    4. vscode配置
-   
+
       1. python
       2. fortran
       3. js

@@ -1,17 +1,18 @@
 ---
+title: "conda安装与使用"
+author: "海上修机师"
+source: "飞书知识库"
 tags:
   - 软件
 ---
 
-# conda安装与使用
-
-# 安装
+## 安装
 
 [www.anaconda.com](https://www.anaconda.com/download)
 
 一路下一步（不建议将anaconda添加至PATH）
 
-# 使用
+## 使用
 
 在开始菜单中搜索Anaconda，打开**Anaconda Prompt**
 
@@ -69,7 +70,7 @@ source deactivate yourEnvName
 你可能经常听说【换源】这个词。
 
 > 在软件包管理的上下文中，如pip、apt或conda，**"源"**通常指的是存储和分发软件包的服务器或服务。
-> 
+>
 > 例如，对于Python的pip包管理器，源是一个托管Python软件包的服务器，pip可以从这个服务器下载并安装软件包。PyPI（Python Package Index）是最常用的Python包源，但用户也可以使用其他源，如清华大学的PyPI镜像。
 
 对于conda，源的概念被称为"频道"。频道是托管conda软件包的服务器或服务，用户可以从这些频道下载并安装软件包。Anaconda默认的频道包含了大多数常用的科学计算包，而conda-forge是一个由社区维护的频道，包含了许多在默认频道中找不到的包。

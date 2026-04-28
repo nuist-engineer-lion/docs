@@ -1,10 +1,11 @@
 ---
+title: "前端"
+author: "海上修机师"
+source: "飞书知识库"
 tags:
   - 进阶
   - 全栈
 ---
-
-# 前端
 
 !!! note "🎁 提示"
     本文章转载自：**jinzhi**
@@ -12,7 +13,7 @@ tags:
 !!! note "😊 提示"
     以下内容为个人推荐，其中大部分内容本人都看过，这里推荐给你，希望能帮到你。祝你学习愉快\~
 
-# Vue3
+## Vue3
 
 ## 文档
 
@@ -39,7 +40,7 @@ Vue3 选项式API（较老一些），知识点比较细，每集很简短。
 
 等等
 
-# TypeScript
+## TypeScript
 
 如果你想快速进入到我们的开发工程中，你不必过多深入了解`TypeScript`，只需要大概了解类型标注即可。
 
@@ -51,12 +52,12 @@ Vue3 选项式API（较老一些），知识点比较细，每集很简短。
 
 看到P14即可进入项目开发。
 
-# Vue生态库
+## Vue生态库
 
 本项目的启动模板使用antfu的`vitesse`模板，仓库内包含所使用库的链接，可以帮助你了解Vue相关库的选用与组织方式，你可以点击相关的链接来进一步了解。
 
 [GitHub - antfu/vitesse: 🏕 Opinionated Vite + Vue Starter Template](https://github.com/antfu/vitesse)
 
-# Git
+## Git
 
 [Git使用教程,最详细，最傻瓜，最浅显，真正手把手教](https://zhuanlan.zhihu.com/p/30044692)

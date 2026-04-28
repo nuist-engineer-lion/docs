@@ -1,10 +1,11 @@
 ---
+title: "后端"
+author: "海上修机师"
+source: "飞书知识库"
 tags:
   - 进阶
   - 全栈
 ---
-
-# 后端
 
 !!! note "🎁 提示"
     本文章转载自：**jinzhi**
@@ -12,7 +13,7 @@ tags:
 !!! note "😊 提示"
     以下内容为个人推荐，其中大部分内容本人都看过，这里推荐给你，希望能帮到你。祝你学习愉快\~
 
-# 大杂烩
+## 大杂烩
 
 [Build a REST API with NestJS, PostgreSQL, Swagger and Prisma | Series](https://www.prisma.io/blog/series/nestjs-prisma-kges29apbbik)
 
@@ -23,7 +24,7 @@ tags:
 
 [使用 NestJS 和 Prisma 创建 REST API](https://zhuanlan.zhihu.com/p/533245292)
 
-# NestJS
+## NestJS
 
 ## 文档
 
@@ -37,7 +38,7 @@ tags:
 
 [第一章（介绍nest js）_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1NG41187Bs?p=1)
 
-# TypeScript
+## TypeScript
 
 如果你想快速进入到我们的开发工程中，你不必过多深入了解`TypeScript`，只需要大概了解类型标注即可。
 
@@ -47,12 +48,12 @@ tags:
 
 [小满TypeScript基础教程全集（完结）_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1wR4y1377K)
 
-# AdminJs
+## AdminJs
 
 ## 文档
 
 [AdminJS](https://docs.adminjs.co/)
 
-# Git
+## Git
 
 [Git使用教程,最详细，最傻瓜，最浅显，真正手把手教](https://zhuanlan.zhihu.com/p/30044692)
