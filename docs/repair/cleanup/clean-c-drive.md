@@ -9,7 +9,7 @@ tags:
 # 工具介绍
 
 !!! note "🌟 提示"
-    以下工具在【图吧工具箱】均中有收录，具体参见[图吧工具箱](../../archive/legacy/图吧工具箱.md)
+    以下工具在【图吧工具箱】均中有收录，具体参见[图吧工具箱](../tools/tubatool.md)
 
 ## SpaceSniffer
 

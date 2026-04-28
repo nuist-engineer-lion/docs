@@ -123,6 +123,52 @@ TAG_ICONS = {
     "excerpts": "material/notebook",
 }
 
+TITLE_OVERRIDES = {
+    "github/docs/FileSystem.md": "文件系统与分区基础",
+    "github/docs/OSI七层模型简单介绍.md": "OSI 七层模型",
+    "github/docs/PCFixing-HuaweiShare-Network-Error.md": "Windows IP/DNS 配置异常导致无法联网",
+    "github/docs/PCFixing-WhiteScreen-Bug.md": "Win11 白屏闪烁排查",
+    "github/docs/jerry修机经验.md": "常见机型故障经验",
+    "github/docs/windows的安装.md": "Windows 安装流程",
+    "github/docs/zzh10月16.md": "硬件故障案例：荣耀猎人黑屏与傲腾硬盘",
+    "github/docs/清灰流程.md": "笔记本清灰流程",
+    "github/docs/联想小新锁频问题.md": "联想小新锁频问题",
+    "github/docs/重装系统失败时.md": "重装系统后 Boot failed 排查",
+}
+
+PRESERVE_ORIGINAL_H1_OVERRIDES = {
+    "github/docs/zzh10月16.md",
+}
+
+PUBLIC_TEXT_REPLACEMENTS = {
+    "据客户描述": "据用户描述",
+    "面对客户我们": "面对用户我们",
+    "下次买个副屏用来检测叭": "后续建议准备外接显示器用于交叉验证。",
+    "PS：顺便再买俩硬盘盒叭": "后续建议准备备用硬盘盒用于交叉验证。",
+    "机主怎么忍得了的？": "已严重影响使用。",
+    "有一说一这感觉像是过热": "该现象初步看更接近过热或功耗策略问题",
+    "蛮搞笑的": "表现较不稳定",
+    "不戳": "可作为后续优先方案",
+    "反正我没修好过": "实际成功率不高",
+    "（哎，微软）": "，避免后续重新设置",
+    "要干坨锡": "可能需要补焊",
+    "别把卡扣都给扬了": "避免损坏卡扣",
+    "寄，看看主板有没有烧坏": "需要重点怀疑主板故障，检查主板是否有烧坏痕迹",
+    "## 针对重装系统后出现boot failed": "## 现象",
+    "1.部分机主电脑windows boot优先级在u盘启动后，推荐重装完启动时拔出u盘": "1. 部分设备在 U 盘启动后会保留 Windows Boot 优先级，重装完成重启时建议先拔出 U 盘。",
+    "3.在pe里直接用直接右键装载iso，后跳过输入密钥，然后就可以正常装啦。": "3. 在 PE 中右键装载 ISO，运行安装程序并跳过输入密钥，通常可以继续安装。",
+    "5.第三点中的方法好像还会把网卡驱动打上？感觉以后就用这个不戳。": "5. 第三点的方法通常也能带上网卡驱动，可作为后续优先方案。",
+    "5.第三点中的方法好像还会把网卡驱动打上？感觉以后就用这个可作为后续优先方案。": "5. 第三点的方法通常也能带上网卡驱动，可作为后续优先方案。",
+    "2.失败后可尝试使用dism++或者pe盘自带的引导修复软件修复，但大概率失败诶（实际成功率不高）": "2. 可尝试使用 Dism++ 或 PE 自带的引导修复工具修复，但实际成功率不高。",
+    "4.要注意使用联网验证后机主设置pin时，如果他要用含字母的pin一定要让他把含字母选项勾上，不然还得重设，避免后续重新设置": "4. 联网验证后设置 PIN 时，如果需要使用字母，必须勾选包含字母的选项，避免后续重新设置。",
+    "进无论哪个系统都转弯圈瞬间黑屏": "进入任意系统时，在加载转圈阶段瞬间黑屏",
+    "但秒进pe": "但可以快速进入 PE",
+    "后在pe中dg和hdtune检测": "随后在 PE 中使用 DiskGenius 和 HD Tune 检测",
+    "pe读不出S.M.A.R.T": "PE 无法读取 S.M.A.R.T.",
+    "看到就不能重装系统咯": "遇到这类配置时不要直接重装系统",
+    "直接抬走": "基本可判断硬盘异常",
+}
+
 SPECIAL_ROUTES = {
     "feishu/01-首页.md": None,
     "feishu/02-修机教程编写项目.md": "operations/repair-writing-project.md",
@@ -199,10 +245,36 @@ SPECIAL_ROUTES = {
     "feishu/15-已有资源列表.md": "operations/resources.md",
     "feishu/16-预约单收集表.md": "operations/appointment-form.md",
     "feishu/17-Codex及第三方GPT站点入门简述.md": "advanced/ai/codex-and-gpt-sites.md",
-    "github/index.md": "archive/legacy/home.md",
-    "github/docs/index.md": "archive/legacy/docs-index.md",
+    "github/index.md": None,
+    "github/docs/index.md": None,
     "github/store/index.md": "archive/legacy/store.md",
     "github/README.md": "archive/legacy/readme.md",
+    "github/docs/2023年新机推荐.md": None,
+    "github/docs/FileSystem.md": "repair/theory/file-system.md",
+    "github/docs/JupyterLab.md": None,
+    "github/docs/MBR和GPT.md": None,
+    "github/docs/OSI七层模型简单介绍.md": "networking/osi-model.md",
+    "github/docs/PCFixing-HuaweiShare-Network-Error.md": "repair/troubleshooting/windows-ip-dns-network-error.md",
+    "github/docs/PCFixing-WhiteScreen-Bug.md": "repair/troubleshooting/win11-white-screen-flicker.md",
+    "github/docs/PE盘的制作与使用.md": None,
+    "github/docs/SSD加速HDD.md": None,
+    "github/docs/VSCode及环境配置.md": None,
+    "github/docs/WSL的安装和使用.md": None,
+    "github/docs/conda安装与使用.md": None,
+    "github/docs/ipv4和ipv6.md": None,
+    "github/docs/jerry修机经验.md": "repair/troubleshooting/model-failure-notes.md",
+    "github/docs/joycon手柄维修.md": None,
+    "github/docs/office的安装.md": None,
+    "github/docs/windows的安装.md": "repair/install/windows-install-process.md",
+    "github/docs/zzh10月16.md": "repair/troubleshooting/hardware-case-notes.md",
+    "github/docs/图吧工具箱.md": None,
+    "github/docs/清C盘流程.md": None,
+    "github/docs/清灰流程.md": "repair/cleanup/dust-cleaning.md",
+    "github/docs/用户需要学会的软件使用.md": None,
+    "github/docs/联想小新锁频问题.md": "repair/troubleshooting/lenovo-xiaoxin-throttling.md",
+    "github/docs/计算机启动过程.md": None,
+    "github/docs/远程控制.md": None,
+    "github/docs/重装系统失败时.md": "repair/troubleshooting/windows-install-boot-failed.md",
 }
 
 SHEET_ROUTES = {
@@ -260,6 +332,10 @@ def extract_title(path: Path) -> str:
         if line.startswith("# "):
             return line[2:].strip()
     return strip_order(path.stem)
+
+
+def page_title(path: Path) -> str:
+    return TITLE_OVERRIDES.get(rel_old(path), extract_title(path))
 
 
 def section_for(dest: Path) -> str:
@@ -323,7 +399,7 @@ def discover_pages() -> list[Page]:
         route = route_feishu(path)
         if route is None:
             continue
-        title = SHEET_ROUTES.get(extract_sheet_id(path), (None, extract_title(path)))[1]
+        title = SHEET_ROUTES.get(extract_sheet_id(path), (None, page_title(path)))[1]
         dest = Path(route)
         pages.append(Page(path, dest, title, section_for(dest), str(dest).startswith(HISTORICAL_PREFIXES)))
 
@@ -334,8 +410,8 @@ def discover_pages() -> list[Page]:
         if route is None:
             continue
         dest = Path(route)
-        title = extract_title(path)
-        pages.append(Page(path, dest, title, section_for(dest), True))
+        title = page_title(path)
+        pages.append(Page(path, dest, title, section_for(dest), str(dest).startswith(HISTORICAL_PREFIXES)))
 
     seen: dict[Path, Page] = {}
     for page in pages:
@@ -594,10 +670,18 @@ def normalize_text(
     text = html.unescape(text)
     text = text.replace("老东西", "成员")
     text = text.replace("死🐴人", "争议较大")
+    for old, new in PUBLIC_TEXT_REPLACEMENTS.items():
+        text = text.replace(old, new)
     text = re.sub(r"（[^）]*(?:旁边评论|看看有没有推荐|user-id)[^）]*）", "", text)
     text = re.sub(r"\n{3,}", "\n\n", text).strip()
 
-    if not re.search(r"^#\s+", text, flags=re.M):
+    source_rel = rel_old(page.source)
+    if source_rel in TITLE_OVERRIDES:
+        if source_rel not in PRESERVE_ORIGINAL_H1_OVERRIDES:
+            text = re.sub(r"^#\s+.*\n?", "", text, count=1, flags=re.M)
+        text = re.sub(r"^#\s+", "## ", text, flags=re.M)
+        text = f"# {page.title}\n\n{text.lstrip()}"
+    elif not re.search(r"^#\s+", text, flags=re.M):
         text = f"# {page.title}\n\n{text}"
     if page.historical:
         note = (

@@ -12,3 +12,4 @@ IP、DNS、内网穿透、虚拟网络和家庭网络。
 - [全屋WIFI覆盖方案分享](home-wifi.md)
 - [常见 IP 地址块速查](ip-address-blocks-table.md)
 - [ipv4和ipv6](ipv4-ipv6.md)
+- [OSI 七层模型](osi-model.md)
