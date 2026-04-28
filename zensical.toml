@@ -1,0 +1,210 @@
+[project]
+site_name = "海上修机师知识库"
+site_description = "面向南信大学生和新成员的电脑维修、软件配置、网络与社团运维知识库。"
+site_author = "NUIST Engineer Lion"
+site_url = "https://nuist-engineer-lion-docs.vercel.app/"
+repo_url = "https://github.com/nuist-engineer-lion/docs"
+repo_name = "nuist-engineer-lion/docs"
+copyright = "Copyright &copy; 2026 NUIST Engineer Lion"
+docs_dir = "docs"
+site_dir = "site"
+use_directory_urls = true
+
+nav = [
+  {"首页" = "index.md"},
+  {"入门" = [
+    "start/index.md",
+    {"用户需要知道的电脑组成" = "start/computer-basics.md"},
+    {"如何提问" = "start/how-to-ask.md"},
+    {"常见笔记本品牌及其各系列常见问" = "start/laptop-brands.md"},
+    {"小白知识科普内容" = "start/overview.md"},
+    {"用户需要学会的软件使用" = "start/software-basics.md"},
+  ]},
+  {"修机" = [
+    "repair/index.md",
+    {"引导修复" = "repair/boot/boot-repair.md"},
+    {"MBR 与 GPT 兼容性表" = "repair/boot/mbr-gpt-compatibility-table.md"},
+    {"MBR和GPT" = "repair/boot/mbr-gpt.md"},
+    {"计算机启动过程" = "repair/boot/startup-process.md"},
+    {"清C盘流程" = "repair/cleanup/clean-c-drive.md"},
+    {"常见设备启动菜单按键" = "repair/install/boot-menu-keys.md"},
+    {"PE盘的制作与使用" = "repair/install/pe-drive.md"},
+    {"Windows 11 硬件要求" = "repair/install/windows-11-requirements.md"},
+    {"摘录自msdn的教程文章" = "repair/install/windows-install-excerpt.md"},
+    {"Windows PE 版本表" = "repair/install/windows-pe-version-table.md"},
+    {"附录" = "repair/reference/overview.md"},
+    {"修机SOP流程文件" = "repair/sop/repair-sop.md"},
+    {"海上修机师-标准化操作流程（编辑版）" = "repair/sop/standard-process.md"},
+    {"理论知识" = "repair/theory/overview.md"},
+    {"工具" = "repair/tools/overview.md"},
+    {"图吧工具箱" = "repair/tools/tubatool.md"},
+    {"黑屏SOP" = "repair/troubleshooting/black-screen-sop.md"},
+    {"常见蓝屏代码" = "repair/troubleshooting/blue-screen-codes.md"},
+  ]},
+  {"软件" = [
+    "software/index.md",
+    {"HEU_KMS_Activator" = "software/activation/heu-kms-activator.md"},
+    {"Apt镜像服务器构建" = "software/apt-mirror.md"},
+    {"conda安装与使用" = "software/conda.md"},
+    {"JupyterLab" = "software/jupyterlab.md"},
+    {"office的安装" = "software/office-installation.md"},
+    {"软件部分" = "software/overview.md"},
+    {"远程控制" = "software/remote-control.md"},
+    {"软件面试题" = "software/software-interview.md"},
+    {"虚拟机" = "software/virtual-machines.md"},
+    {"VSCode及环境配置" = "software/vscode.md"},
+    {"WSL的安装和使用" = "software/wsl.md"},
+  ]},
+  {"硬件" = [
+    "hardware/index.md",
+    {"硬件DIY配置询问指导" = "hardware/diy-build-guidance.md"},
+    {"手柄维修" = "hardware/game-controller-repair.md"},
+    {"硬件面试题" = "hardware/hardware-interview.md"},
+    {"笔记本接口" = "hardware/laptop-ports.md"},
+    {"万用表检修" = "hardware/multimeter.md"},
+    {"超频指导（施工中" = "hardware/overclocking.md"},
+    {"硬件部分" = "hardware/overview.md"},
+    {"SSD加速HDD" = "hardware/ssd-cache-hdd.md"},
+  ]},
+  {"网络" = [
+    "networking/index.md",
+    {"【第四期】DNS [施工中]" = "networking/advanced-networking/dns.md"},
+    {"【第一期】内网穿透 [施工中]" = "networking/advanced-networking/frp.md"},
+    {"【第二期】多拨" = "networking/advanced-networking/multi-wan.md"},
+    {"好玩的网络" = "networking/advanced-networking/overview.md"},
+    {"【第三期】虚拟网络 [施工中]" = "networking/advanced-networking/virtual-network.md"},
+    {"全屋WIFI覆盖方案分享" = "networking/home-wifi.md"},
+    {"常见 IP 地址块速查" = "networking/ip-address-blocks-table.md"},
+    {"ipv4和ipv6" = "networking/ipv4-ipv6.md"},
+  ]},
+  {"进阶" = [
+    "advanced/index.md",
+    {"Codex及第三方GPT站点入门简述" = "advanced/ai/codex-and-gpt-sites.md"},
+    {"Codex 沙盒模式速查" = "advanced/ai/codex-sandbox-modes.md"},
+    {"后端" = "advanced/fullstack/backend.md"},
+    {"前端" = "advanced/fullstack/frontend.md"},
+    {"archlinux的安装" = "advanced/lab/archlinux.md"},
+    {"有趣的整活栏目" = "advanced/lab/overview.md"},
+    {"OpenMediaVault" = "advanced/nas/openmediavault.md"},
+    {"基于windows的NAS" = "advanced/nas/windows-nas.md"},
+    {"进阶技能" = "advanced/overview.md"},
+    {"【Matplotlib】三剑客之图表绘制" = "advanced/python-science/matplotlib.md"},
+    {"【第一期】Pyplot还是OO？" = "advanced/python-science/pyplot-or-oo.md"},
+    {"Git从原理到实践" = "advanced/tooling/git.md"},
+    {"Markdown从基础到进阶" = "advanced/tooling/markdown.md"},
+    {"一些最佳实践的工具流" = "advanced/tooling/overview.md"},
+  ]},
+  {"运营" = [
+    "operations/index.md",
+    {"预约单收集表" = "operations/appointment-form.md"},
+    {"人员管理" = "operations/policies/people-management.md"},
+    {"公众号管理和对外宣传" = "operations/policies/public-account.md"},
+    {"撰写记录" = "operations/policies/sop-writing-record.md"},
+    {"修机教程编写项目" = "operations/repair-writing-project.md"},
+    {"已有资源列表" = "operations/resources.md"},
+    {"撰写目录" = "operations/writing-directory.md"},
+  ]},
+  {"归档" = [
+    "archive/index.md",
+    {"黑魔法" = "archive/black-magic/overview.md"},
+    {"黑魔法 · 1-Done" = "archive/black-magic/黑魔法-·-1-Done.md"},
+    {"黑魔法 · 2-Updating" = "archive/black-magic/黑魔法-·-2-Updating.md"},
+    {"2023新机推荐" = "archive/buying-guide/2023-laptops.md"},
+    {"2024新机推荐" = "archive/buying-guide/2024-laptops.md"},
+    {"摘录" = "archive/excerpts/overview.md"},
+    {"FileSystem（文件系统）" = "archive/legacy/FileSystem.md"},
+    {"JupyterLab 安装与配置指南" = "archive/legacy/JupyterLab.md"},
+    {"MBR和GPT" = "archive/legacy/MBR和GPT.md"},
+    {"OSI七层模型简单介绍" = "archive/legacy/OSI七层模型简单介绍.md"},
+    {"修复华为共享引起的无法上网问题" = "archive/legacy/PCFixing-HuaweiShare-Network-Error.md"},
+    {"Win11 白屏闪烁故障原因及解决方法" = "archive/legacy/PCFixing-WhiteScreen-Bug.md"},
+    {"PE盘的制作与使用" = "archive/legacy/PE盘的制作与使用.md"},
+    {"SSD加速HDD" = "archive/legacy/SSD加速HDD.md"},
+    {"VSCode及环境配置" = "archive/legacy/VSCode及环境配置.md"},
+    {"WSL的安装和使用" = "archive/legacy/WSL的安装和使用.md"},
+    {"Windows PowerShell" = "archive/legacy/conda安装与使用.md"},
+    {"这里是修机经验" = "archive/legacy/docs-index.md"},
+    {"index" = "archive/legacy/home.md"},
+    {"**ipv4和ipv6**" = "archive/legacy/ipv4和ipv6.md"},
+    {"Jerry 或许有用的记忆" = "archive/legacy/jerry修机经验.md"},
+    {"joycon手柄维修" = "archive/legacy/joycon手柄维修.md"},
+    {"office的安装" = "archive/legacy/office的安装.md"},
+    {"-NUIST-" = "archive/legacy/readme.md"},
+    {"成员的站点" = "archive/legacy/store.md"},
+    {"windows的安装" = "archive/legacy/windows的安装.md"},
+    {"荣耀猎人黑屏（通病）" = "archive/legacy/zzh10月16.md"},
+    {"图吧工具箱" = "archive/legacy/图吧工具箱.md"},
+    {"南信大校科协推荐 笔记本选购指南" = "archive/legacy/年新机推荐.md"},
+    {"清C盘流程" = "archive/legacy/清C盘流程.md"},
+    {"清灰流程" = "archive/legacy/清灰流程.md"},
+    {"用户需要学会的软件使用" = "archive/legacy/用户需要学会的软件使用.md"},
+    {"联想小新锁频问题" = "archive/legacy/联想小新锁频问题.md"},
+    {"计算机启动过程" = "archive/legacy/计算机启动过程.md"},
+    {"远程控制" = "archive/legacy/远程控制.md"},
+    {"补充：后来经过讨论得出，是新盘在分区时使用了dg快速分区，而dg默认的是mbr，所以找不到引导，后用windows镜像装后，因为不支持mbr直接将分区删除了。win11和win10不持支mbr一定要选gpt，uefi不能引导mbr！！！" = "archive/legacy/重装系统失败时.md"},
+    {"2016 信息时代，技术并存" = "archive/team/2016.md"},
+    {"2017 信好有你 技往开来" = "archive/team/2017.md"},
+    {"2018 信好有你，技续前行" = "archive/team/2018.md"},
+    {"2019 信好有你，技续前行" = "archive/team/2019.md"},
+    {"2020 届 信技的传说——信息技术部" = "archive/team/2020.md"},
+    {"2021 届 有信相遇 技往开来" = "archive/team/2021.md"},
+    {"2022 山不容我，转身向海" = "archive/team/2022.md"},
+    {"2023 届 山不是山，我还是我" = "archive/team/2023.md"},
+  ]},
+]
+
+[project.theme]
+variant = "classic"
+language = "zh"
+features = [
+  "content.code.copy",
+  "content.code.select",
+  "content.tabs.link",
+  "navigation.footer",
+  "navigation.indexes",
+  "navigation.instant",
+  "navigation.path",
+  "navigation.sections",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+]
+logo = "assets/legacy/assets/logo.svg"
+favicon = "assets/legacy/assets/logo.svg"
+
+[[project.theme.palette]]
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "切换到深色模式"
+
+[[project.theme.palette]]
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "切换到浅色模式"
+
+[project.markdown_extensions.abbr]
+[project.markdown_extensions.admonition]
+[project.markdown_extensions.attr_list]
+[project.markdown_extensions.def_list]
+[project.markdown_extensions.footnotes]
+[project.markdown_extensions.md_in_html]
+[project.markdown_extensions.toc]
+permalink = true
+[project.markdown_extensions.pymdownx.betterem]
+[project.markdown_extensions.pymdownx.caret]
+[project.markdown_extensions.pymdownx.details]
+[project.markdown_extensions.pymdownx.highlight]
+anchor_linenums = true
+line_spans = "__span"
+pygments_lang_class = true
+[project.markdown_extensions.pymdownx.inlinehilite]
+[project.markdown_extensions.pymdownx.keys]
+[project.markdown_extensions.pymdownx.mark]
+[project.markdown_extensions.pymdownx.smartsymbols]
+[project.markdown_extensions.pymdownx.superfences]
+[project.markdown_extensions.pymdownx.tabbed]
+alternate_style = true
+combine_header_slug = true
+[project.markdown_extensions.pymdownx.tasklist]
+custom_checkbox = true
+[project.markdown_extensions.pymdownx.tilde]

@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "installCommand": "python3 -m pip install uv && python3 -m uv sync --frozen",
+  "buildCommand": "python3 -m uv run python -m zensical build --clean",
+  "outputDirectory": "site"
+}
+

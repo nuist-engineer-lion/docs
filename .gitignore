@@ -1,0 +1,7 @@
+.venv/
+.vercel/
+.cache/
+site/
+__pycache__/
+*.pyc
+
