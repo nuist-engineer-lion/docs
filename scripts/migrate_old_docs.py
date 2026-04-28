@@ -794,7 +794,7 @@ def write_config(pages: list[Page]) -> None:
         'site_name = "海上修机师知识库"',
         'site_description = "面向南信大学生和新成员的电脑维修、软件配置、网络与社团运维知识库。"',
         'site_author = "NUIST Engineer Lion"',
-        'site_url = "https://nuist-engineer-lion-docs.vercel.app/"',
+        'site_url = "https://wiki.nuist.link/"',
         'repo_url = "https://github.com/nuist-engineer-lion/docs"',
         'repo_name = "nuist-engineer-lion/docs"',
         'edit_uri = "edit/main/docs"',
