@@ -1,3 +1,8 @@
+---
+tags:
+  - 软件
+---
+
 # office的安装
 
 # 使用office tool plus安装

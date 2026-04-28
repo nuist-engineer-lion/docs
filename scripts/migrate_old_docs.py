@@ -36,6 +36,93 @@ SECTION_ORDER = [
     "archive",
 ]
 
+TAG_DEFINITIONS = [
+    ("入门", "start"),
+    ("修机", "repair"),
+    ("软件", "software"),
+    ("硬件", "hardware"),
+    ("网络", "networking"),
+    ("进阶", "advanced"),
+    ("运营", "operations"),
+    ("归档", "archive"),
+    ("历史资料", "history"),
+    ("装机", "install"),
+    ("引导", "boot"),
+    ("系统清理", "cleanup"),
+    ("SOP", "sop"),
+    ("维修工具", "repair-tools"),
+    ("故障排查", "troubleshooting"),
+    ("软件激活", "activation"),
+    ("网络专题", "network-topics"),
+    ("NAS", "nas"),
+    ("AI", "ai"),
+    ("全栈", "fullstack"),
+    ("Linux", "linux"),
+    ("科学计算", "python-science"),
+    ("工具链", "tooling"),
+    ("规范", "policies"),
+    ("旧站", "legacy"),
+    ("团队历史", "team-history"),
+    ("历史选购", "buying-guide"),
+    ("历史专题", "historical-topics"),
+    ("摘录", "excerpts"),
+]
+
+SUBSECTION_TAGS = {
+    ("repair", "install"): "装机",
+    ("repair", "boot"): "引导",
+    ("repair", "cleanup"): "系统清理",
+    ("repair", "sop"): "SOP",
+    ("repair", "tools"): "维修工具",
+    ("repair", "troubleshooting"): "故障排查",
+    ("software", "activation"): "软件激活",
+    ("networking", "advanced-networking"): "网络专题",
+    ("advanced", "nas"): "NAS",
+    ("advanced", "ai"): "AI",
+    ("advanced", "fullstack"): "全栈",
+    ("advanced", "lab"): "Linux",
+    ("advanced", "python-science"): "科学计算",
+    ("advanced", "tooling"): "工具链",
+    ("operations", "policies"): "规范",
+    ("archive", "legacy"): "旧站",
+    ("archive", "team"): "团队历史",
+    ("archive", "buying-guide"): "历史选购",
+    ("archive", "black-magic"): "历史专题",
+    ("archive", "excerpts"): "摘录",
+}
+
+TAG_ICONS = {
+    "start": "material/book-open",
+    "repair": "material/wrench",
+    "software": "lucide/app-window",
+    "hardware": "lucide/cpu",
+    "networking": "material/network",
+    "advanced": "lucide/chart-no-axes-combined",
+    "operations": "lucide/settings-2",
+    "archive": "material/archive",
+    "history": "material/history",
+    "install": "material/package",
+    "boot": "material/play-circle",
+    "cleanup": "material/broom",
+    "sop": "material/file-cog",
+    "repair-tools": "material/tools",
+    "troubleshooting": "material/alert-circle",
+    "activation": "material/key",
+    "network-topics": "material/router",
+    "nas": "material/server",
+    "ai": "lucide/bot",
+    "fullstack": "lucide/code-xml",
+    "linux": "lucide/terminal",
+    "python-science": "material/language-python",
+    "tooling": "lucide/git-branch",
+    "policies": "lucide/scroll-text",
+    "legacy": "lucide/folder-git-2",
+    "team-history": "lucide/users",
+    "buying-guide": "material/clipboard-list",
+    "historical-topics": "material/newspaper",
+    "excerpts": "material/notebook",
+}
+
 SPECIAL_ROUTES = {
     "feishu/01-首页.md": None,
     "feishu/02-修机教程编写项目.md": "operations/repair-writing-project.md",
@@ -526,10 +613,35 @@ def write_page(page: Page, source_to_dest: dict[Path, Path], title_to_dest: dict
     output_page = DOCS_DIR / page.dest
     output_page.parent.mkdir(parents=True, exist_ok=True)
     text = page.source.read_text(encoding="utf-8", errors="ignore")
-    output_page.write_text(
-        normalize_text(text, page, output_page, source_to_dest, title_to_dest),
-        encoding="utf-8",
-    )
+    normalized = normalize_text(text, page, output_page, source_to_dest, title_to_dest)
+    output_page.write_text(add_frontmatter(normalized, page), encoding="utf-8")
+
+
+def page_tags(page: Page) -> list[str]:
+    tags = [SECTION_INFO[page.section][0]]
+    parts = page.dest.parts
+    if len(parts) > 1:
+        subsection_tag = SUBSECTION_TAGS.get((page.section, parts[1]))
+        if subsection_tag:
+            tags.append(subsection_tag)
+    if page.historical:
+        tags.append("历史资料")
+    return list(dict.fromkeys(tags))
+
+
+def add_frontmatter(text: str, page: Page) -> str:
+    tag_lines = "\n".join(f"  - {tag}" for tag in page_tags(page))
+    frontmatter = f"tags:\n{tag_lines}\n"
+
+    if text.startswith("---\n"):
+        end = text.find("\n---\n", 4)
+        if end != -1:
+            existing = text[4:end].strip()
+            body = text[end + 5 :].lstrip("\n")
+            merged = frontmatter + (existing + "\n" if existing else "")
+            return f"---\n{merged}---\n\n{body}"
+
+    return f"---\n{frontmatter}---\n\n{text}"
 
 
 def sort_key(page: Page) -> tuple[int, str, str]:
@@ -601,6 +713,7 @@ def write_config(pages: list[Page]) -> None:
         'site_url = "https://nuist-engineer-lion-docs.vercel.app/"',
         'repo_url = "https://github.com/nuist-engineer-lion/docs"',
         'repo_name = "nuist-engineer-lion/docs"',
+        'edit_uri = "edit/main/docs"',
         'copyright = "Copyright &copy; 2026 NUIST Engineer Lion"',
         'docs_dir = "docs"',
         'site_dir = "site"',
@@ -630,30 +743,61 @@ def write_config(pages: list[Page]) -> None:
             'variant = "classic"',
             'language = "zh"',
             "features = [",
+            '  "content.action.edit",',
+            '  "content.action.view",',
             '  "content.code.copy",',
             '  "content.code.select",',
             '  "content.tabs.link",',
             '  "navigation.footer",',
             '  "navigation.indexes",',
             '  "navigation.instant",',
+            '  "navigation.instant.prefetch",',
+            '  "navigation.instant.progress",',
             '  "navigation.path",',
             '  "navigation.sections",',
+            '  "navigation.tabs",',
+            '  "navigation.tabs.sticky",',
             '  "navigation.top",',
             '  "navigation.tracking",',
             '  "search.highlight",',
+            '  "toc.follow",',
             "]",
+            "font = false",
             'logo = "assets/legacy/assets/logo.svg"',
             'favicon = "assets/legacy/assets/logo.svg"',
             "",
+            "[project.theme.icon]",
+            'repo = "fontawesome/brands/github"',
+            'edit = "material/pencil"',
+            'view = "material/eye"',
+            "",
+            "[project.theme.icon.tag]",
+            *[f'{identifier} = "{icon}"' for identifier, icon in TAG_ICONS.items()],
+            "",
             "[[project.theme.palette]]",
+            'media = "(prefers-color-scheme)"',
+            'toggle.icon = "lucide/sun-moon"',
+            'toggle.name = "跟随系统配色"',
+            "",
+            "[[project.theme.palette]]",
+            'media = "(prefers-color-scheme: light)"',
             'scheme = "default"',
             'toggle.icon = "lucide/sun"',
             'toggle.name = "切换到深色模式"',
             "",
             "[[project.theme.palette]]",
+            'media = "(prefers-color-scheme: dark)"',
             'scheme = "slate"',
             'toggle.icon = "lucide/moon"',
-            'toggle.name = "切换到浅色模式"',
+            'toggle.name = "切换到系统配色"',
+            "",
+            "[project.extra.tags]",
+            *[f'{toml_string(tag)} = "{identifier}"' for tag, identifier in TAG_DEFINITIONS],
+            "",
+            "[[project.extra.social]]",
+            'icon = "fontawesome/brands/github"',
+            'link = "https://github.com/nuist-engineer-lion/docs"',
+            'name = "GitHub 仓库"',
             "",
             "[project.markdown_extensions.abbr]",
             "[project.markdown_extensions.admonition]",

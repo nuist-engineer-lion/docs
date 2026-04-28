@@ -1,3 +1,9 @@
+---
+tags:
+  - 软件
+  - 软件激活
+---
+
 # HEU_KMS_Activator
 
 [Releases · zbezj/HEU_KMS_Activator](https://github.com/zbezj/HEU_KMS_Activator/releases)

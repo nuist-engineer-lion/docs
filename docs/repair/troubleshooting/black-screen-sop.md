@@ -1,3 +1,9 @@
+---
+tags:
+  - 修机
+  - 故障排查
+---
+
 # 黑屏SOP
 
 # ⭐First Things First

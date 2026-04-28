@@ -1,3 +1,9 @@
+---
+tags:
+  - 进阶
+  - Linux
+---
+
 # archlinux的安装
 
 这个东西其实没必要写教程,archlinux的wiki写的很清楚...

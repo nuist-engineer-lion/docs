@@ -1,3 +1,8 @@
+---
+tags:
+  - 软件
+---
+
 # JupyterLab
 
 # 概述

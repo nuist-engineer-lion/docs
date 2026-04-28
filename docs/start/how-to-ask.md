@@ -1,3 +1,8 @@
+---
+tags:
+  - 入门
+---
+
 # 如何提问
 
 ![whiteboard](../assets/feishu/whiteboards/DBmFwEQGIhnSqDb1F1ZcFcryn6d.jpg)
