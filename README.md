@@ -6,8 +6,7 @@
 
 ```bash
 uv sync
-uv run python scripts/migrate_old_docs.py
-uv run python scripts/check_content.py
+
 uv run python -m zensical build --clean
 ```
 

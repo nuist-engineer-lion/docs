@@ -3,7 +3,6 @@ title: "Codex及第三方GPT站点入门简述"
 author: "海上修机师"
 source: "飞书知识库"
 tags:
-  - 进阶
   - AI
 ---
 
@@ -15,7 +14,7 @@ tags:
 
 `Windows 11`用户打开`Microsoft Store`搜索`Codex`即可
 
-![](../../assets/feishu/media/c78f02f7503419fa3ca7395e.png)
+![](../assets/feishu/media/c78f02f7503419fa3ca7395e.png)
 
 ## 2. Codex配置
 
@@ -45,7 +44,7 @@ Url：一串网址，作用是让软件明白去链接哪个网站；
 
 API Key：起到账号+密码功能，作用是让第三方站点知道是谁在用和能不能使用。
 
-![](../../assets/feishu/media/908fd50fc74e4a491e9a86b7.png)
+![](../assets/feishu/media/908fd50fc74e4a491e9a86b7.png)
 
 比如此处我需要从Right Code导入进Codex，我就需要选择Codex分组，点击Codex下方复制符号即可获得基础URL：[https://right.codes/codex](https://right.codes/codex)
 
@@ -53,27 +52,27 @@ API Key：起到账号+密码功能，作用是让第三方站点知道是谁在
 
 接下来切换到令牌管理窗口，通过如下窗口创建：
 
-![](../../assets/feishu/media/41550c1ffc85ab79596df6ed.png)
+![](../assets/feishu/media/41550c1ffc85ab79596df6ed.png)
 
 之后创建完毕，复制密钥即可
 
-![](../../assets/feishu/media/9d7a9ff39d8c01d0b2cd35fd.png)
+![](../assets/feishu/media/9d7a9ff39d8c01d0b2cd35fd.png)
 
 ### 2.2.2. 导入Url和API Key
 
 Right Code官方文档：[https://docs.right.codes/docs/rc_cli_config/codex.html](https://docs.right.codes/docs/rc_cli_config/codex.html)
 
-![](../../assets/feishu/media/aebe081b727fed0bf27432d1.png)
+![](../assets/feishu/media/aebe081b727fed0bf27432d1.png)
 
 使用第三方站点需要修改配置文件实现。在文件路径`C:\Users\Adaoer\.codex`下有两个文件`config.toml`和`auth.json`，如果看不见后面的文件类型请如下操作：
 
-![](../../assets/feishu/media/19f8993130a33bfec361aae9.png)
+![](../assets/feishu/media/19f8993130a33bfec361aae9.png)
 
 #### Config.toml配置
 
 该文件用途是存储Codex的配置，这里我们需要修改的是有关站点的内容
 
-![](../../assets/feishu/media/6c83bb063d1ab236e9bb7497.png)
+![](../assets/feishu/media/6c83bb063d1ab236e9bb7497.png)
 
 1\~13行为第三方站点的配置，主要内容为如下：
 
@@ -89,17 +88,17 @@ Right Code官方文档：[https://docs.right.codes/docs/rc_cli_config/codex.html
 - 1M上下文：model_context_window = 1000000，实际最高为1,048,575但是有可能会报错
 - 多Agent协作：multi_agent = tru,= true，但是需要添加`[features]`，可以固定在1\~13行这些基础设置的后面，也就是在14行位置插入类似下图的写法
 
-![](../../assets/feishu/media/6091c1b0a2a3b30d1cdab18f.png)
+![](../assets/feishu/media/6091c1b0a2a3b30d1cdab18f.png)
 
 - 快速模式：service_tier="fast"，快速模式正常情况下仅在官方模式下开启，但是通过自主添加也能调用，额度消耗速度**翻倍**
 
 #### auth.json配置
 
-![](../../assets/feishu/media/f0a7a2263ea6e5b6e8e2e4e8.png)
+![](../assets/feishu/media/f0a7a2263ea6e5b6e8e2e4e8.png)
 
 ## 3. Codex等Agent助手使用基础
 
-![](../../assets/feishu/media/64b0083ea24a05bef8c2c5b9.png)
+![](../assets/feishu/media/64b0083ea24a05bef8c2c5b9.png)
 
 在主界面左上角进入
 
@@ -121,13 +120,13 @@ Skills通常是一组**Prompt（提示词）模板**、**编排逻辑**或者**�
 
 在Codex软件中，内置了一个特殊的Skill，叫做`Skill Creator`，其功能简单概括即为创建或者修改Skills。
 
-![](../../assets/feishu/media/a783c2d4113d2789401a25bc.png)
+![](../assets/feishu/media/a783c2d4113d2789401a25bc.png)
 
 启用这个Skill之后，只需要通过对话便能让Agent创建自己的Skill。
 
 接下来以我的Skill：`工科实验报告`为例简述一下创建、调试Skill的过程：
 
-![](../../assets/feishu/media/bd9040c6026a4f7598edaa9e.png)
+![](../assets/feishu/media/bd9040c6026a4f7598edaa9e.png)
 
 
 
@@ -169,7 +168,7 @@ Skills通常是一组**Prompt（提示词）模板**、**编排逻辑**或者**�
 
 上下文是AI的核心性能之一
 
-![](../../assets/feishu/media/ae4f46f06df73f1c864529aa.png)
+![](../assets/feishu/media/ae4f46f06df73f1c864529aa.png)
 
 上下文的长度取决于调用的模型，模型上下文长度是固定的，上图中上下文极限是258k(tokens)
 
@@ -200,13 +199,13 @@ Skills通常是一组**Prompt（提示词）模板**、**编排逻辑**或者**�
 
 ### 3.2.2. 工作区
 
-![](../../assets/feishu/media/a3e62c6304965e4d1f170c93.png)
+![](../assets/feishu/media/a3e62c6304965e4d1f170c93.png)
 
 没什么特别的，只是选定一个文件夹作为Agent工作区，可以先将工作用的文件材料放入其中
 
 ### 3.2.3. 权限
 
-![](../../assets/feishu/media/2cb17bc429503915777f53f4.png)
+![](../assets/feishu/media/2cb17bc429503915777f53f4.png)
 
 默认即可，完全访问权限容易误删东西或者破坏环境，有信心的朋友可以尝试
 
@@ -224,7 +223,7 @@ Sandbox 是 Codex 的安全隔离机制，防止意外修改工作区外的文�
 
 邀请码：[97383DE7](https://s2a.ii.sb/register?ref=97383DE7)
 
-![](../../assets/feishu/media/93c5f4832f3688215ea15013.png)
+![](../assets/feishu/media/93c5f4832f3688215ea15013.png)
 
 该站点中API Key分组选择`CC分组`，其中可以使用免费的`gpt-4o`
 

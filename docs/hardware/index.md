@@ -15,6 +15,7 @@ tags:
 - [硬件面试题](hardware-interview.md)
 - [笔记本接口](laptop-ports.md)
 - [万用表检修](multimeter.md)
+- [NAS：垃圾佬的终极归宿](nas/index.md)
+- [基于windows的NAS](nas/windows-nas.md)
 - [超频指导（施工中](overclocking.md)
-- [硬件部分](overview.md)
 - [SSD加速HDD](ssd-cache-hdd.md)

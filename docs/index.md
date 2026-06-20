@@ -13,7 +13,7 @@ source: "站点目录"
 - [软件](software/index.md)：Windows 常用软件、开发环境、虚拟化和远程工具。
 - [硬件](hardware/index.md)：硬件基础、接口、维修工具、DIY 配置和硬件专题。
 - [网络](networking/index.md)：IP、DNS、内网穿透、虚拟网络和家庭网络。
-- [进阶](advanced/index.md)：NAS、Linux、开发工具链、科学计算和全栈技术栈。
+- [AI](ai/index.md)：AI 助手、Codex 配置、提示词工程和工作流集成。
 - [运营](operations/index.md)：社团/团队运维、规范性文件、资源清单和预约流程。
 - [归档](archive/index.md)：旧站、历史资料、摘录和已过时但仍有参考价值的内容。
 

@@ -3,7 +3,7 @@ title: "【第一期】Pyplot还是OO？"
 author: "海上修机师"
 source: "飞书知识库"
 tags:
-  - 进阶
+  - 软件
   - 科学计算
 ---
 

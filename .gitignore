@@ -1,8 +1,22 @@
+# Python
 .venv/
-.vercel/
-.cache/
-site/
 __pycache__/
 *.pyc
+*.pyo
 
-.vercel
+# Build output
+site/
+.cache/
+
+# Vercel
+.vercel/
+
+# Environment
+.env
+.env.local
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
